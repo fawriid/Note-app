@@ -14,7 +14,7 @@ add.addEventListener("click", () => {
     addNote();
 });
 
-function addNote(localtext = "") {
+function addNote(localText = "") {
     const noteEl = document.createElement("div");
     noteEl.classList.add("note");
     noteEl.innerHTML = `
@@ -26,8 +26,8 @@ function addNote(localtext = "") {
             <i class="fas fa-trash-can"></i>
         </button>
     </div>
-    <div class="text ${localtext ? "" : "hidden"}"></div>
-    <textarea class="textarea ${localtext ? "hidden" : ""}"></textarea>
+    <div class="text ${localText ? "" : "hidden"}"></div>
+    <textarea class="textarea ${localText ? "hidden" : ""}"></textarea>
     `;
 
     const edit = noteEl.querySelector(".edit");
@@ -35,7 +35,9 @@ function addNote(localtext = "") {
     const text = noteEl.querySelector(".text");
     const textArea = noteEl.querySelector(".textarea");
 
-    text.innerHTML = localtext;
+
+    textArea.innerText = localText
+    text.innerHTML = localText;
 
     textArea.addEventListener("input", (e) => {
         const { value } = e.target;
@@ -51,7 +53,6 @@ function addNote(localtext = "") {
     });
 
     edit.addEventListener("click", () => {
-        console.log("hello");
         text.classList.toggle("hidden");
         textArea.classList.toggle("hidden");
     });
