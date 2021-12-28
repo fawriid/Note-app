@@ -58,7 +58,7 @@ body {
     overflow-y: auto;
     /* background-color: transparent; */
 }
-.textarea {
+.note .hidden {
     display: none;
 }
 .tools button {
